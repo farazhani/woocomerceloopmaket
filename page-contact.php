@@ -1,53 +1,46 @@
+
 <?php
-// get_header(); ?>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-<br/>
-<div class="items-center justify-center h-screen bg-gray-200 shadow-md rounded-lg p-6 <br/>">
-<h3 class="text-center">
-ما یک سوپرمارکت اشتراکی هستیم که با همراهی اعضای محله شکل گرفته‌ایم تا خرید روزمره رو ساده‌تر، منصفانه‌تر و دل‌چسب‌تر کنیم
-</h3>
-<h3 class="text-center">
- باور داریم که همکاری، اعتماد و ارتباط نزدیک با مشتری‌ها، قلب تپنده‌ی این فروشگاهه
-</h3>
-<h3 class="text-center">
- اگر سوالی داری، پیشنهادی داری یا فقط می‌خوای سلامی بدی، خوشحال می‌شیم صدات رو بشنویم
-</h3>
-<h3 class="text-center">
- راه‌های ارتباطی پایین همین صفحه منتظر تو هستن. با هم، بهتر می‌سازیم
-</h3>
-<br/>
-<br/>
-<br/>
-<br/>
-<p class="text-sm font-medium text-center">پشتیبانی:09039036722</p>
+defined( 'ABSPATH' ) || exit;
+get_header(); ?>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
 
- 
-    <div  class="justify-center">
-      <label class=" text-center block text-sm font-medium text-gray-700">نام و نام خانوادگی</label>
-      <div class="flex justify-center items-center ">
-      <input type="text"  cols="45" name="full_name" required class="  mt-1 block  rounded-md border-gray-800 shadow-md focus:ring-green-500 focus:border-green-500">
-    </div>
-    </div>
-    <div  class="justify-center">
-      <label class=" text-center block text-sm font-medium text-gray-700"> ایمیل</label>
-      <div class="flex justify-center items-center ">
-      <input type="email" name="full_name"  cols="45" required class="  mt-1 block  rounded-md border-gray-800 shadow-md focus:ring-green-500 focus:border-green-500">
-    </div>
-    </div>
+<div class=" max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg shadow-md">
 
-    <div class="justify-center">
-      <label class=" text-center block text-sm font-medium text-gray-700">دریافت پیام</label>
-      <div class="flex justify-center items-center ">
-      <textarea name="message" rows="5" cols="45" required class=" mt-1 block rounded-md border-gray-300 shadow-sm focus:ring-green-500 focus:border-green-500"></textarea>
+  <!-- فرم تماس -->
+  <div class="bg-gray-50 p-6 rounded-lg border">
+    <h2 class="text-xl font-bold text-gray-800 mb-6 text-right">فرم ارتباط با ما</h2>
+   
+      <input type="hidden" name="action" value="submit_contact_form">
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <input type="text" name="first_name" placeholder="نام" required class="w-full p-3 rounded border border-gray-300 text-right">
+        <input type="text" name="last_name" placeholder="نام خانوادگی" required class="w-full p-3 rounded border border-gray-300 text-right">
+      </div>
+ <br/>
+      <input type="email" name="email" placeholder="ایمیل" required class="w-full p-3 rounded border border-gray-300 text-right">
+       <br/>
+        <br/>
+      <textarea name="message" rows="5" placeholder="توضیحات" required class="w-full p-3 rounded border border-gray-300 text-right"></textarea>
+      <br/>
+      <br/>
+      <button type="submit" class="w-full bg-green-500 text-white py-3 rounded hover:bg-green-700 transition">ارسال پیام ←</button>
+  
+  </div>
+
+  <!-- اطلاعات تماس -->
+  <div class="flex flex-col justify-center p-6 text-right">
+    <h2 class="text-xl font-bold text-gray-800 mb-4">ارتباط با ما</h2>
+    <p class="mb-2 text-gray-700">📞 شماره تماس: <span class="font-semibold">09198741984</span></p>
+    <p class="mb-6 text-gray-700">📧 ایمیل: <a href="hanifaraz82@gmail.com" class="text-blue-600 hover:underline">khamirtabzi.narmak.organ@gmail.com</a></p>
+
+    <div class="flex justify-end space-x-4 rtl:space-x-reverse">
+      <a href="#" class="text-blue-500 text-xl"><i class="fab fa-telegram"></i></a>
+      <a href="#" class="text-green-500 text-xl"><i class="fab fa-whatsapp"></i></a>
+      <a href="#" class="text-pink-500 text-xl"><i class="fab fa-instagram"></i></a>
     </div>
-    </div>
-     <div class=" justify-center items-center ">
-    <button type="submit" class="text-center w-50 bg-green-400 text-white py-2 px-4 rounded-md hover:bg-green-700 transition">ارسال پیام</button>
- </div>
+  </div>
+
 </div>
 
-<!-- <?php get_footer(); ?> -->
-
-  
-
+<?php get_footer(); ?>
 
