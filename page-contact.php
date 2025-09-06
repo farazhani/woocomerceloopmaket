@@ -1,10 +1,31 @@
 
-<?php
-defined( 'ABSPATH' ) || exit;
-get_header(); ?>
-<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+<style>
+@keyframes slideDown {
+  0% { transform: translateY(-50px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
+}
+.animate-slideDown {
+  animation: slideDown 0.8s ease-out forwards;
+}
+</style>
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ارتباط با ما</title>
 
-<div class=" max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg shadow-md">
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    @keyframes slideDown {
+      0% { transform: translateY(-50px); opacity: 0; }
+      100% { transform: translateY(0); opacity: 1; }
+    }
+    .animate-slideDown {
+      animation: slideDown 0.8s ease-out forwards;
+    }
+  </style>
+<div class="animate-slideDown max-w-6xl mx-auto py-10 px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-8 bg-white rounded-lg shadow-md">
 
   <!-- فرم تماس -->
   <div class="bg-gray-50 p-6 rounded-lg border">
@@ -42,5 +63,4 @@ get_header(); ?>
 
 </div>
 
-<?php get_footer(); ?>
 
