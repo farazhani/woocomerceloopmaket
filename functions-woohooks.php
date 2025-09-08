@@ -189,3 +189,8 @@ function hodcode_template_loop_price()
   </span>
 <?php
 }
+add_filter( 'woocommerce_get_cart_url', 'custom_cart_page_url' );
+function custom_cart_page_url( $url ) {
+  return home_url( 'http://localhost/wordpress/wordpress/wp-admin/post.php?post=167&action=edit' ); 
+}
+
