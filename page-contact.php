@@ -11,6 +11,23 @@ Template Name: فرم تماس سفارشی
 */
 defined('ABSPATH') || exit;
 get_header();
+
+$success_message = '';
+$error_message = '';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form_submitted'])) {
+  $first_name = sanitize_text_field($_POST['first_name'] ?? '');
+  $last_name = sanitize_text_field($_POST['last_name'] ?? '');
+  $email = sanitize_email($_POST['email'] ?? '');
+  $message = sanitize_textarea_field($_POST['message'] ?? '');
+
+  if (empty($first_name) || empty($last_name) || empty($message)) {
+    $error_message = 'اطلاعات کامل نیست. لطفاً همه فیلدهای ضروری را پر کنید.';
+  } else {
+    $success_message = 'پیام شما با موفقیت ارسال شد ✅';
+  }
+}
+
 ?>
 
 <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
@@ -40,7 +57,17 @@ get_header();
     <div id="formSuccess" class="hidden bg-green-100 text-green-800 p-4 rounded mb-4 text-right font-medium">
       پیام شما با موفقیت ارسال شد ✅
     </div>
+<?php if (!empty($error_message)): ?>
+  <div class="bg-red-100 text-red-800 p-4 rounded mb-4 text-right font-medium">
+    <?= esc_html($error_message); ?>
+  </div>
+<?php endif; ?>
 
+<?php if (!empty($success_message)): ?>
+  <div class="bg-green-100 text-green-800 p-4 rounded mb-4 text-right font-medium">
+    <?= esc_html($success_message); ?>
+  </div>
+<?php endif; ?>
     <form method="post" id="contactForm" novalidate>
       <input type="hidden" name="contact_form_submitted" value="1">
 
@@ -71,31 +98,6 @@ get_header();
   </div>
 </div>
 
-<script>
-  document.getElementById('contactForm').addEventListener('submit', function(e) {
-    const requiredFields = document.querySelectorAll('.required-field');
-    let valid = true;
 
-    requiredFields.forEach(field => {
-      if (!field.value.trim()) {
-        field.classList.add('error-border');
-        valid = false;
-      } else {
-        field.classList.remove('error-border');
-      }
-    });
-
-    const alertBox = document.getElementById('formAlert');
-    const successBox = document.getElementById('formSuccess');
-
-    if (!valid) {
-      e.preventDefault();
-      alertBox.classList.remove('hidden');
-      successBox.classList.add('hidden');
-    } else {alertBox.classList.add('hidden');
-      successBox.classList.remove('hidden');
-    }
-  });
-</script>
 
 <?php get_footer(); ?>
